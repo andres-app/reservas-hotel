@@ -29,7 +29,7 @@ PLANES
 				<div class="grid-item d-none d-lg-block" data-toggle="modal" data-target="#modalPlanes">
 
 					<figure class="text-center">
-						<h1 descripcion="<?php echo $value["descripcion"]; ?>" class="text-uppercase">PLAN <?php echo $value["tipo"] ?></h1>
+					<h1 descripcion="<?php echo $value["descripcion"]; ?>" class="text-uppercase">PLAN <?php echo strtoupper($value["tipo"]); ?></h1>
 					</figure>
 
 					<img src="<?php echo $servidor . $value["img"]; ?>" width="100%">

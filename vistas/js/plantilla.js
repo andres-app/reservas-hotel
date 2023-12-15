@@ -316,3 +316,13 @@ if(window.matchMedia("(max-width:768px)").matches){
 	$(".infoPerfil .colIzqPerfil").css({"margin-top":($("header").height()+100)+"px"})
 
 }
+
+// main.js
+
+$(document).ready(function() {
+    // Inicializa el datepicker
+    $('.datepicker').datepicker({
+        autoclose: true, // Cierra automáticamente el calendario después de seleccionar una fecha
+        format: 'yyyy-mm-dd' // Puedes ajustar el formato de la fecha según tus necesidades
+    });
+});

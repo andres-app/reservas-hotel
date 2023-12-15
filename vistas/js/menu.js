@@ -56,4 +56,18 @@ if(window.matchMedia("(max-width:768px)").matches){
 
 }
 
+$(".btnModalPlan").click(function(e) {
+    e.preventDefault();
+
+    // Oculta el modal antes de iniciar la animación
+    $('#modalPlanes').modal('hide');
+
+    var vinculo = $(this).attr("href");
+
+    $("html, body").animate({
+        scrollTop: $(vinculo).offset().top - 60
+    }, 1000, "easeInOutBack");
+});
+
+
 
