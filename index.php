@@ -15,5 +15,8 @@ require_once "modelos/categorias.modelo.php";
 require_once "controladores/recorrido.controlador.php";
 require_once "modelos/recorrido.modelo.php";
 
+require_once "controladores/restaurante.controlador.php";
+require_once "modelos/restaurante.modelo.php";
+
 $plantilla = new ControladorPlantilla();
 $plantilla -> ctrPlantilla();
