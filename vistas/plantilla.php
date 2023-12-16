@@ -7,10 +7,11 @@ $servidor = ControladorRuta::ctrServidor();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>Hotel Portobelo</title>
 
@@ -26,7 +27,8 @@ $servidor = ControladorRuta::ctrServidor();
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 
 	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
 	<!-- Fuente Open Sans y Ubuntu -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Ubuntu" rel="stylesheet">
@@ -40,7 +42,7 @@ $servidor = ControladorRuta::ctrServidor();
 	<!-- Pano -->
 	<link rel="stylesheet" href="css/plugins/jquery.pano.css">
 
-	 <!-- fullCalendar -->
+	<!-- fullCalendar -->
 	<link rel="stylesheet" href="css/plugins/fullcalendar.min.css">
 
 	<!-- Hoja de estilo personalizada -->
@@ -83,63 +85,62 @@ $servidor = ControladorRuta::ctrServidor();
 	<!-- fullCalendar -->
 	<!-- https://momentjs.com/ -->
 	<script src="js/plugins/moment.js"></script>
-	<!-- https://fullcalendar.io/docs/background-events-demo -->	
+	<!-- https://fullcalendar.io/docs/background-events-demo -->
 	<script src="js/plugins/fullcalendar.min.js"></script>
 
 
 </head>
+
 <body>
 
-<?php
+	<?php
 
-include "paginas/modulos/header.php";
+	include "paginas/modulos/header.php";
 
-/*=============================================
-PÁGINAS
-=============================================*/
+	/*=============================================
+	PÁGINAS
+	=============================================*/
 
-if(isset($_GET["pagina"])){
+	if (isset($_GET["pagina"])) {
 
-	if($_GET["pagina"] == "habitaciones"){
+		$rutasCategorias = ControladorCategorias::ctrMostrarCategorias();
 
-		include "paginas/habitaciones.php";
+		foreach ($rutasCategorias as $key => $value) {
+
+			if ($_GET["pagina"] == $value["ruta"]) {
+				include "paginas/habitaciones.php";
+			}
+		}
+
+		if ($_GET["pagina"] == "reservas" || $_GET["pagina"] == "perfil") {
+
+			include "paginas/".$_GET["pagina"].".php";
+
+		}
+
+	} else {
+
+		include "paginas/inicio.php";
 
 	}
 
-	if($_GET["pagina"] == "reservas"){
 
-		include "paginas/reservas.php";
-		
-	}
-
-	if($_GET["pagina"] == "perfil"){
-
-		include "paginas/perfil.php";
-		
-	}
-
-}else{
-
-	include "paginas/inicio.php";
-
-}
+	/*=============================================
+	PÁGINAS
+	=============================================*/
 
 
-/*=============================================
-PÁGINAS
-=============================================*/
+	include "paginas/modulos/footer.php";
 
+	include "paginas/modulos/modal.php";
 
-include "paginas/modulos/footer.php";
+	?>
 
-include "paginas/modulos/modal.php";
+	<script src="js/plantilla.js"></script>
+	<script src="js/menu.js"></script>
+	<script src="js/idiomas.js"></script>
+	<script src="js/reservas.js"></script>
 
-?>
-
-<script src="js/plantilla.js"></script>
-<script src="js/menu.js"></script>
-<script src="js/idiomas.js"></script>
-<script src="js/reservas.js"></script>
-	
 </body>
+
 </html>
