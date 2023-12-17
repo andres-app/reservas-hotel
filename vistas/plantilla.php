@@ -13,7 +13,7 @@ $servidor = ControladorRuta::ctrServidor();
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Hotel Portobelo</title>
+	<title>Hotel Reservas</title>
 
 	<base href="vistas/">
 
@@ -139,7 +139,9 @@ $servidor = ControladorRuta::ctrServidor();
 	<script src="js/plantilla.js"></script>
 	<script src="js/menu.js"></script>
 	<script src="js/idiomas.js"></script>
+	<script src="js/habitaciones.js"></script>
 	<script src="js/reservas.js"></script>
+	
 
 </body>
 
