@@ -42,7 +42,7 @@ INFO HABITACIÓN
 
 							<li class="nav-item">
 
-								<a class="nav-link text-white" href="#">
+								<a class="nav-link text-white" orden="<?php echo $key; ?>"ruta="<?php echo $_GET["pagina"]; ?>" href="#">
 									<?php echo $value["estilo"]; ?>
 								</a>
 
