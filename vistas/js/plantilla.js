@@ -1,3 +1,6 @@
+var urlPrincipal = $("#urlPrincipal").val();
+var urlServidor = $("#urlServidor").val();
+
 /*=============================================
 ANIMACIONES CON EL SCROLL
 =============================================*/
@@ -224,7 +227,7 @@ SLIDE HABITACIONES
 =============================================*/
 
  $("#myPano").pano({
-	img: "img/360.jpg"
+	img: $("#myPano").attr("back")
 });
 
  /*=============================================

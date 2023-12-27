@@ -42,7 +42,8 @@ INFO HABITACIÓN
 
 							<li class="nav-item">
 
-								<a class="nav-link text-white" orden="<?php echo $key; ?>"ruta="<?php echo $_GET["pagina"]; ?>" href="#">
+								<a class="nav-link text-white" orden="<?php echo $key; ?>"
+									ruta="<?php echo $_GET["pagina"]; ?>" href="#">
 									<?php echo $value["estilo"]; ?>
 								</a>
 
@@ -67,8 +68,8 @@ INFO HABITACIÓN
 						<ul class="slide-area">
 
 							<?php
-								$galeria = json_decode($habitaciones[0]["galeria"], true)
-							?>
+							$galeria = json_decode($habitaciones[0]["galeria"], true)
+								?>
 
 							<?php foreach ($galeria as $key => $value): ?>
 
@@ -104,7 +105,8 @@ INFO HABITACIÓN
 
 				<section class="mb-3 my-lg-3 videoHabitaciones d-none">
 
-					<iframe width="100%" height="380" src="https://www.youtube.com/embed/<?php echo $habitaciones[0]["video"]; ?>" frameborder="0"
+					<iframe width="100%" height="380"
+						src="https://www.youtube.com/embed/<?php echo $habitaciones[0]["video"]; ?>" frameborder="0"
 						allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 						allowfullscreen></iframe>
 
@@ -114,7 +116,8 @@ INFO HABITACIÓN
 
 				<section class="mb-3 my-lg-3 360Habitaciones d-none">
 
-					<div id="myPano" class="pano" back="<?php echo $servidor.$habitaciones[0]["recorrido_virtual"]; ?>">
+					<div id="myPano" class="pano"
+						back="<?php echo $servidor . $habitaciones[0]["recorrido_virtual"]; ?>">
 
 						<div class="controls">
 							<a href="#" class="left">&laquo;</a>
@@ -131,7 +134,9 @@ INFO HABITACIÓN
 
 				<div class="descripcionHabitacion px-3">
 
-					<h1 class="colorTitulos float-left"><?php echo $habitaciones[0]["estilo"]." ".$habitaciones[0]["tipo"]; ?></h1>
+					<h1 class="colorTitulos float-left">
+						<?php echo $habitaciones[0]["estilo"] . " " . $habitaciones[0]["tipo"]; ?>
+					</h1>
 
 					<div class="float-right pt-2">
 
@@ -150,7 +155,7 @@ INFO HABITACIÓN
 
 					<div class="d_habitacion">
 
-					<?php echo $habitaciones[0]["descripcion_h"]; ?>
+						<?php echo $habitaciones[0]["descripcion_h"]; ?>
 
 					</div>
 
@@ -202,127 +207,87 @@ INFO HABITACIÓN
 			</div>
 
 			<!--=====================================
-			BLOQUE DER
+			BLOQUE DERECHA
 			======================================-->
 
 			<div class="col-12 col-lg-4 colDerHabitaciones">
 
-				<h2 class="colorTitulos">SUITE INCLUYE:</h2>
+				<h2 class="colorTitulos text-uppercase">
+					<?php echo $habitaciones[0]["tipo"]; ?> INCLUYE:
+				</h2><br>
 
 				<ul>
-					<li>
-						<h5>
-							<i class="fas fa-bed w-25 colorTitulos"></i>
-							<span class="text-dark small">cama 2 x 2</span>
-						</h5>
-					</li>
 
-					<li>
-						<h5>
-							<i class="fas fa-tv w-25 colorTitulos"></i>
-							<span class="text-dark small">TV de 42"</span>
-						</h5>
-					</li>
+					<?php
 
-					<li>
-						<h5>
-							<i class="fas fa-tint w-25 colorTitulos"></i>
-							<span class="text-dark small">Agua caliente</span>
-						</h5>
-					</li>
+					$incluye = json_decode($habitaciones[0]["incluye"], true);
 
-					<li>
-						<h5>
-							<i class="fas fa-water w-25 colorTitulos"></i>
-							<span class="text-dark small">Jacuzzi</span>
-						</h5>
-					</li>
+					?>
 
-					<li>
-						<h5>
-							<i class="fas fa-toilet w-25 colorTitulos"></i>
-							<span class="text-dark small">Baño privado</span>
-						</h5>
-					</li>
+					<?php foreach ($incluye as $key => $value): ?>
 
-					<li>
-						<h5>
-							<i class="fas fa-couch w-25 colorTitulos"></i>
-							<span class="text-dark small"> Sofá</span>
-						</h5>
-					</li>
+						<li>
+							<h5>
+								<i class="<?php echo $value["icono"]; ?> w-25 colorTitulos"></i>
+								<span class="text-dark small">
+									<?php echo $value["item"]; ?>
+								</span>
+							</h5>
+						</li>
 
-					<li>
-						<h5>
-							<i class="far fa-image w-25 colorTitulos"></i>
-							<span class="text-dark small">Balcón</span>
-						</h5>
-					</li>
+					<?php endforeach ?>
 
-
-					<li>
-						<h5>
-							<i class="fas fa-wifi w-25 colorTitulos"></i>
-							<span class="text-dark small">Servicio Wifi</span>
-						</h5>
-					</li>
 				</ul>
 
 				<!-- HABITACIONES -->
+				<br>
 
-				<div class="habitaciones">
+				<div class="habitaciones" id="habitaciones">
 
 					<div class="container">
 
+
 						<div class="row">
 
-							<div class="col-12 pb-3 px-0 px-lg-3">
 
-								<a href="<?php echo $ruta; ?>habitaciones">
+							<?php
 
-									<figure class="text-center">
+							$categorias = ControladorCategorias::ctrMostrarCategorias();
 
-										<img src="img/habitacion02.png" class="img-fluid" width="100%">
+							?>
 
-										<p class="small py-4 mb-0">Lorem ipsum dolor sit amet, consectetur</p>
+							<?php foreach ($categorias as $key => $value): ?>
 
-										<h3 class="py-2 text-gray-dark mb-0">DESDE $200 USD</h3>
+								<?php if ($_GET["pagina"] != $value["ruta"]): ?>
 
-										<h5 class="py-2 text-gray-dark border">Ver detalles <i
-												class="fas fa-chevron-right ml-2" style=""></i></h5>
+									<div class="col-12 pb-3 px-0 px-lg-3">
 
-										<h1 class="text-white p-3 mx-auto w-50 lead" style="background:#197DB1">ESPECIAL
-										</h1>
+										<a href="<?php echo $ruta . $value["ruta"]; ?>">
 
-									</figure>
+											<figure class="text-center">
+												<img src="<?php echo $servidor . $value["img"]; ?>" class="img-fluid"
+													width="100%">
+												<div class="py-4">
+													<p class="small py-2 mb-0 text-uppercase">
+														<?php echo $value["tipo"]; ?>
+													</p>
+													<h3 class="py-2 text-gray-dark mb-0"
+														style="color: #000000; background: #ffffff;">S/
+														<?php echo number_format($value["continental_baja"], 2); ?> soles
+													</h3>
+													<h5 class="py-2 text-gray-dark border">Ver detalles <i
+															class="fas fa-chevron-right ml-2"></i></h5>
+												</div>
+											</figure>
 
-								</a>
 
-							</div>
+										</a>
 
-							<div class="col-12 pb-3 px-0 px-lg-3">
+									</div>
 
-								<a href="<?php echo $ruta; ?>habitaciones">
+								<?php endif ?>
 
-									<figure class="text-center">
-
-										<img src="img/habitacion03.png" class="img-fluid" width="100%">
-
-										<p class="small py-4 mb-0">Lorem ipsum dolor sit amet, consectetur</p>
-
-										<h3 class="py-2 text-gray-dark mb-0">DESDE $150 USD</h3>
-
-										<h5 class="py-2 text-gray-dark border">Ver detalles <i
-												class="fas fa-chevron-right ml-2"></i></h5>
-
-										<h1 class="text-white p-3 mx-auto w-50 lead" style="background:#2F7D84">STANDAR
-										</h1>
-
-									</figure>
-
-								</a>
-
-							</div>
+							<?php endforeach ?>
 
 						</div>
 
