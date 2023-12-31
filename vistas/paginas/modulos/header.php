@@ -141,9 +141,9 @@ HEADER
 
 			<div class="grid-item d-none d-lg-block mt-1 idiomas">
 
-				<span class="border border-info float-left p-1 bg-info text-white idiomaEs">ES</span>
+				<span class="border border-dark float-left p-1 bg-dark text-white idiomaEs">ES</span>
 
-				<span class="border border-info float-left p-1 bg-white text-dark idiomaEn">EN</span>
+				<span class="border border-dark float-left p-1 bg-white text-dark idiomaEn">EN</span>
 
 			</div>
 

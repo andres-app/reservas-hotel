@@ -8,7 +8,7 @@ $(".idiomaEn").click(function(){
 	$(this).removeClass("bg-white")
 	$(this).removeClass("text-dark")
 
-	$(this).addClass("bg-info")
+	$(this).addClass("bg-dark")
 	$(this).addClass("text-white")
 
 	$(".idiomaEs").removeClass("bg-info")
