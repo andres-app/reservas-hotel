@@ -65,7 +65,7 @@ header .formReservas{
     height: auto;
     left:0px;
     z-index: 2;
-    background: rgba(0, 83, 147, .8);
+    background: rgba(0, 0, 0, 0.55);
 }
 
 header .formReservas .input-group-lg input, header .formReservas select{
@@ -73,7 +73,7 @@ header .formReservas .input-group-lg input, header .formReservas select{
 }
 
 header .formReservas input[type="button"]{
-	background:black;
+	background: goldenrod;
 	font-size:16px;
 }
 

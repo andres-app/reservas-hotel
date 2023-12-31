@@ -92,7 +92,7 @@ HEADER
 
 					</div>
 
-					<div class="row">
+					<!--<div class="row">
 
 						<div class="col-6">
 
@@ -122,7 +122,7 @@ HEADER
 							</div>
 						</div>
 
-					</div>
+					</div> -->
 
 					<input type="button" class="btn btn-block btn-lg my-4 text-white" value="Ver disponibilidad">
 				</div>

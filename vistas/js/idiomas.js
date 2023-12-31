@@ -11,7 +11,7 @@ $(".idiomaEn").click(function(){
 	$(this).addClass("bg-dark")
 	$(this).addClass("text-white")
 
-	$(".idiomaEs").removeClass("bg-info")
+	$(".idiomaEs").removeClass("bg-dark")
 	$(".idiomaEs").removeClass("text-white")
 
 	$(".idiomaEs").addClass("bg-white")
@@ -28,7 +28,7 @@ $(".idiomaEs").click(function(){
 	$(this).addClass("bg-info")
 	$(this).addClass("text-white")
 
-	$(".idiomaEn").removeClass("bg-info")
+	$(".idiomaEn").removeClass("bg-dark")
 	$(".idiomaEn").removeClass("text-white")
 
 	$(".idiomaEn").addClass("bg-white")
