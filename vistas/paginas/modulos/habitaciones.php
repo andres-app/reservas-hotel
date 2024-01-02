@@ -10,7 +10,7 @@ HABITACIONES
 
 	<div class="container">
 
-		<h1 class="pt-4 text-center">HABITACIONES</h1>
+		<h1 class="pt-5 text-center">HABITACIONES</h1>
 
 		<div class="row p-4 text-center">
 

@@ -1,37 +1,57 @@
+<?php
+
+if (isset($_POST["id-habitacion"])) {
+
+	echo '<pre class="bg-white">';
+	print_r($_POST["id-habitacion"]);
+	echo '</pre';
+	echo '<pre class="bg-white">';
+	print_r($_POST["fecha-ingreso"]);
+	echo '</pre';
+	echo '<pre class="bg-white">';
+	print_r($_POST["fecha-salida"]);
+	echo '</pre';
+
+} else {
+	echo '<script> window.location="' . $ruta . '"</script>';
+}
+
+?>
+
 <!--=====================================
 INFO RESERVAS
 ======================================-->
 
 <div class="infoReservas container-fluid bg-white p-0 pb-5">
-	
+
 	<div class="container">
-		
+
 		<div class="row">
 
 			<!--=====================================
 			BLOQUE IZQ
 			======================================-->
-			
+
 			<div class="col-12 col-lg-8 colIzqReservas p-0">
-				
+
 				<!--=====================================
 				CABECERA RESERVAS
 				======================================-->
-				
+
 				<div class="pt-4 cabeceraReservas">
-					
-					<a href="<?php echo $ruta;  ?>habitaciones" class="float-left lead text-white pt-1 px-3">
+
+					<a href="<?php echo $ruta; ?>habitaciones" class="float-left lead text-white pt-1 px-3">
 						<h5><i class="fas fa-chevron-left"></i> Regresar</h5>
 					</a>
 
 					<div class="clearfix"></div>
 
-					<h1 class="float-left text-white p-2 pb-lg-5">RESERVAS</h1>	
+					<h1 class="float-left text-white p-2 pb-lg-5">RESERVAS</h1>
 
 					<h6 class="float-right px-3">
 
 						<br>
-						<a href="<?php echo $ruta;  ?>perfil" style="color:#FFCC29">Ver tus reservas</a>
+						<a href="<?php echo $ruta; ?>perfil" style="color:#FFCC29">Ver tus reservas</a>
 
 					</h6>
 
@@ -48,7 +68,7 @@ INFO RESERVAS
 					<h1 class="pb-5 float-left">¡Está Disponible!</h1>
 
 					<div class="float-right pb-3">
-							
+
 						<ul>
 							<li>
 								<i class="fas fa-square-full" style="color:#847059"></i> No disponible
@@ -66,7 +86,7 @@ INFO RESERVAS
 					</div>
 
 					<div class="clearfix"></div>
-			
+
 					<div id="calendar"></div>
 
 					<!--=====================================
@@ -75,50 +95,60 @@ INFO RESERVAS
 
 					<h6 class="lead pt-4 pb-2">Puede modificar la fecha de acuerdo a los días disponibles:</h6>
 
-					<div class="container mb-3">
+					<form action="<?php echo $ruta; ?>reservas" method="post">
 
-						<div class="row py-2" style="background:#509CC3">
+						<input type="hidden" name="id-habitacion" value="<?php echo $_POST["id-habitacion"]; ?>">
 
-							 <div class="col-6 col-md-3 input-group pr-1">
-							
-								<input type="text" class="form-control datepicker entrada" placeholder="Entrada">
+						<input type="hidden" name="ruta" value="<?php echo $_POST["ruta"]; ?>">
 
-								<div class="input-group-append">
-									
-									<span class="input-group-text"><i class="far fa-calendar-alt small text-gray-dark"></i></span>
-								
+						<div class="container mb-3">
+
+							<div class="row py-2" style="background:#509CC3">
+
+								<div class="col-6 col-md-3 input-group pr-1">
+
+									<input type="text" class="form-control datepicker entrada" autocomplete="off"
+										placeholder="Entrada" name="fecha-ingreso"
+										value="<?php echo $_POST["fecha-ingreso"]; ?>" required>
+
+									<div class="input-group-append">
+
+										<span class="input-group-text"><i
+												class="far fa-calendar-alt small text-gray-dark"></i></span>
+
+									</div>
+
 								</div>
 
-							</div>
+								<div class="col-6 col-md-3 input-group pl-1">
 
-						 	<div class="col-6 col-md-3 input-group pl-1">
-							
-								<input type="text" class="form-control datepicker salida" placeholder="Salida">
+									<input type="text" class="form-control datepicker salida" autocomplete="off"
+										placeholder="Salida" name="fecha-salida"
+										value="<?php echo $_POST["fecha-salida"]; ?>" readonly required>
 
-								<div class="input-group-append">
-									
-									<span class="input-group-text"><i class="far fa-calendar-alt small text-gray-dark"></i></span>
-								
+									<div class="input-group-append">
+
+										<span class="input-group-text"><i
+												class="far fa-calendar-alt small text-gray-dark"></i></span>
+
+									</div>
+
 								</div>
 
-							</div>
+								<div class="col-12 col-md-6 mt-2 mt-lg-0 input-group">
 
-							<div class="col-12 col-md-6 mt-2 mt-lg-0 input-group">
-								
-								<a href="<?php echo $ruta;  ?>reservas" class="w-100">
-									<input type="button" class="btn btn-block btn-md text-white" value="Ver disponibilidad" style="background:black">	
-								</a>
+									<input type="submit" class="btn btn-block btn-md text-white"
+										value="Ver disponibilidad" style="background:black">
+								</div>
 
 							</div>
 
 						</div>
-
-					</div>
+					</form>
 
 				</div>
 
 			</div>
-
 			<!--=====================================
 			BLOQUE DER
 			======================================-->
@@ -129,65 +159,65 @@ INFO RESERVAS
 				<h2 class="colorTitulos"><strong>K2DRESF34</strong></h2>
 
 				<div class="form-group">
-				  <label>Ingreso:</label>
-				  <input type="date" class="form-control" value="2019-03-13" readonly>
+					<label>Ingreso:</label>
+					<input type="date" class="form-control" value="2019-03-13" readonly>
 				</div>
 
 				<div class="form-group">
-				  <label>Salida:</label>
-				  <input type="date" class="form-control" value="2019-03-15"  readonly>
+					<label>Salida:</label>
+					<input type="date" class="form-control" value="2019-03-15" readonly>
 				</div>
 
 				<div class="form-group">
-				  <label>Habitación:</label>
-				  <input type="text" class="form-control" value="Habitación Suite Oriental" readonly>
+					<label>Habitación:</label>
+					<input type="text" class="form-control" value="Habitación Suite Oriental" readonly>
 
-				  <img src="img/oriental.png" class="img-fluid">
+					<img src="img/oriental.png" class="img-fluid">
 
 				</div>
 
 				<div class="form-group">
-				  <label>Plan:</label>
-				  <select class="form-control">
-				  	
-					<option value="continental">Plan Continental</option>
-					<option value="americano">Plan Americano</option>
-					<option value="romantico">Plan Romántico</option>
-					<option value="lunademiel">Plan Luna de Miel</option>
-					<option value="aventura">Plan Aventura</option>
-					<option value="spa">Plan SPA</option>
+					<label>Plan:</label>
+					<select class="form-control">
 
-				  </select>
+						<option value="continental">Plan Continental</option>
+						<option value="americano">Plan Americano</option>
+						<option value="romantico">Plan Romántico</option>
+						<option value="lunademiel">Plan Luna de Miel</option>
+						<option value="aventura">Plan Aventura</option>
+						<option value="spa">Plan SPA</option>
+
+					</select>
 				</div>
-				
-				<div class="form-group">
-				  <label>Personas:</label>
-				  <select class="form-control">
-				  	
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
 
-				  </select>
+				<div class="form-group">
+					<label>Personas:</label>
+					<select class="form-control">
+
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+
+					</select>
 				</div>
 
 				<div class="row py-4">
 
 					<div class="col-12 col-lg-6 col-xl-7 text-center text-lg-left">
-						
+
 						<h1>$300 USD</h1>
 
 					</div>
-					
+
 					<div class="col-12 col-lg-6 col-xl-5">
-				
-						<a href="<?php echo $ruta;  ?>perfil">
+
+						<a href="<?php echo $ruta; ?>perfil">
 							<button class="btn btn-dark btn-lg w-100">PAGAR <br> RESERVA</button>
 						</a>
 
 					</div>
-			
+
 				</div>
 
 			</div>

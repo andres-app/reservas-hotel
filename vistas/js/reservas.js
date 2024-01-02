@@ -3,7 +3,7 @@ FECHAS RESERVA
 =============================================*/
 $('.datepicker.entrada').datepicker({
 	startDate: '0d',
-	format: 'dd-mm-yyyy',
+	format: 'yyyy-mm-dd',
 	todayHighlight:true
 });
 
@@ -14,11 +14,56 @@ $('.datepicker.entrada').change(function(){
 	$('.datepicker.salida').datepicker({
 		startDate: fechaEntrada,
 		datesDisabled: fechaEntrada,
-		format: 'dd-mm-yyyy'
+		format: 'yyyy-mm-dd'
 	});
 
 })
 
+/*=============================================
+SELECTS ANIDADOS
+=============================================*/
+
+$(".selectTipoHabitacion").change(function(){
+
+  var ruta = $(this).val();
+
+  if(ruta != ""){
+
+    $(".selectTemaHabitacion").html("");
+
+  }else{
+
+    $(".selectTemaHabitacion").html('<option>Temática de habitación</option>')
+
+  }
+
+  var datos = new FormData();
+  datos.append("ruta", ruta);
+
+  $.ajax({
+
+    url:urlPrincipal+"ajax/habitaciones.ajax.php",
+    method: "POST",
+    data: datos,
+    cache: false,
+    contentType: false,
+    processData: false,
+    dataType:"json",
+    success:function(respuesta){
+
+      $("input[name='ruta']").val(respuesta[0]["ruta"]);
+      
+      for(var i = 0; i < respuesta.length; i++){
+
+        $(".selectTemaHabitacion").append('<option value="'+respuesta[i]["id_h"]+'">'+respuesta[i]["estilo"]+'</option>')
+
+      }
+
+    }
+
+  })
+
+})
 
 /*=============================================
 CALENDARIO

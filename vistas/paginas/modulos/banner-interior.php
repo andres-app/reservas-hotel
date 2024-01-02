@@ -6,7 +6,7 @@ BANNER-INTERIOR
 	
 	<figure>
 		
-		<img src="img/banner01.jpg" class="img-fluid" width="100%">
+		<!-- <img src="img/banner01.jpg" class="img-fluid" width="100%"> -->
 
 	</figure>
 

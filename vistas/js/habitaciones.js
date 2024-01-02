@@ -90,7 +90,9 @@ $(".cabeceraHabitacion ul.nav li.nav-item a").click(function (e) {
 
 			$(".descripcionHabitacion h1").html(respuesta[orden]["estilo"] + " " + respuesta[orden]["tipo"]);
 
-			$(".d_habitacion").html(respuesta[orden]["descripcion_h"])
+			$(".d-habitacion").html(respuesta[orden]["descripcion_h"]);
+
+			$('input[name="id-habitacion"]').val(respuesta[orden]["id_h"]);
 
 		}
 

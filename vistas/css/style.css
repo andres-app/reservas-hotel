@@ -44,7 +44,7 @@ header .bloqueReservas{
 
 
 header .bloqueReservas .campana-y-reserva{
-	background:#FFFBEE;
+	/* background:#FFFBEE; */
 	cursor:pointer;
 }
 
@@ -55,7 +55,7 @@ header .bloqueReservas .fa-concierge-bell{
 
 header .bloqueReservas .fa-caret-down, header .bloqueReservas .fa-caret-up{
 	font-size:25px; 
-	color:#236AA1;
+	/* color:#236AA1; */
 }
 
 header .formReservas{
@@ -72,8 +72,8 @@ header .formReservas .input-group-lg input, header .formReservas select{
 	font-size:14px;
 }
 
-header .formReservas input[type="button"]{
-	background: goldenrod;
+header .formReservas input[type="submit"]{
+	background: goldenrod !important;
 	font-size:16px;
 }
 
@@ -252,7 +252,7 @@ HABITACIONES
 
 .habitaciones .row div[class*="col"] figure p{
 	background:black; 
-	color:#aaa;
+	color:#ffffff;
 	padding-left:0;
 	padding-right:0;
 }

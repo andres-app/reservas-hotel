@@ -51,7 +51,7 @@ RESTAURANTE
 					saepe iusto, voluptas fuga. Nesciunt tempora nobis quia, officia at corporis sint sunt saepe quod
 					labore hic iusto totam.</p>
 
-				<button class="btn btn-warning text-uppercase mb-5 verCarta">Ver la carta</button>
+				<button class="btn text-uppercase text-white mb-5 verCarta" style="background: goldenrod;">Ver la carta</button>
 
 			</div>
 
